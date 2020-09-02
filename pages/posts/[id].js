@@ -28,10 +28,29 @@ const Post = ({ post }) => {
   );
 };
 
-Post.getInitialProps = async (ctx) => {
-  const res = await fetch(`http://localhost:4200/posts/${ctx.query.id}`);
+// Post.getInitialProps = async (ctx) => {
+//   const res = await fetch(`http://localhost:4200/posts/${ctx.query.id}`);
+//   const post = await res.json();
+//   return { post };
+// };
+
+export const getStaticProps = async ({ params }) => {
+  const res = await fetch(`http://localhost:4200/posts/${params.id}`);
   const post = await res.json();
-  return { post };
+
+  return {
+    props: {
+      post,
+    },
+  };
+};
+
+export const getStaticPaths = async () => {
+  const res = await fetch("http://localhost:4200/posts");
+  const posts = await res.json();
+
+  const paths = posts.map((post) => `/posts/${post.id}`);
+  return { paths, fallback: false };
 };
 
 export default Post;

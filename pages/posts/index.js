@@ -11,7 +11,7 @@ const Posts = ({ posts }) => {
       <h1 className="mb-3">Posts page</h1>
       <div className="list-group">
         {posts.map((post) => (
-          <Link href="/post/[:id]" as={`/post/${post.id}`} key={post.id}>
+          <Link href="/posts/[:id]" as={`/posts/${post.id}`} key={post.id}>
             <a className="list-group-item list-group-item-action">
               {post.title}
             </a>
@@ -22,11 +22,22 @@ const Posts = ({ posts }) => {
   );
 };
 
-Posts.getInitialProps = async (_) => {
+// Posts.getInitialProps = async (_) => {
+//   const res = await fetch("http://localhost:4200/posts");
+//   const posts = await res.json();
+//   return {
+//     posts,
+//   };
+// };
+
+export const getStaticProps = async (ctx) => {
   const res = await fetch("http://localhost:4200/posts");
   const posts = await res.json();
+
   return {
-    posts,
+    props: {
+      posts,
+    },
   };
 };
 
