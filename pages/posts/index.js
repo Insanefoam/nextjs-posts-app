@@ -1,9 +1,13 @@
 import MainLayout from "../../components/mainLayout";
 import Link from "next/link";
+import Head from "next/head";
 
 const Posts = ({ posts }) => {
   return (
     <MainLayout>
+      <Head>
+        <title>Posts Page | Next.js</title>
+      </Head>
       <h1 className="mb-3">Posts page</h1>
       <div className="list-group">
         {posts.map((post) => (
