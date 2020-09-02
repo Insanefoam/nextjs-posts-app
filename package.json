@@ -1,0 +1,16 @@
+{
+  "name": "create-next-example-app",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "mock": "json-server db.json -p 4200 -d 500",
+    "serve": "concurrently \"npm run mock\" \"npm run dev\""
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "next": "^9.5.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
