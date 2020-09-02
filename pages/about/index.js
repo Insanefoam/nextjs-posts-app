@@ -21,8 +21,8 @@ const About = ({ title, body }) => {
 
 export const getStaticProps = async () => {
   const res = await fetch("http://localhost:4200/about");
-  const data = await res.json();
-  return { props: data };
+  const about = await res.json();
+  return { props: about };
 };
 
 export default About;

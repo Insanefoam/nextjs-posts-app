@@ -30,7 +30,7 @@ const Posts = ({ posts }) => {
 //   };
 // };
 
-export const getStaticProps = async (ctx) => {
+export const getServerSideProps = async () => {
   const res = await fetch("http://localhost:4200/posts");
   const posts = await res.json();
 
