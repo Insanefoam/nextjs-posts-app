@@ -18,7 +18,7 @@ const Posts = ({ posts }) => {
   );
 };
 
-Posts.getInitialProps = async (ctx) => {
+Posts.getInitialProps = async (_) => {
   const res = await fetch("http://localhost:4200/posts");
   const posts = await res.json();
   return {
