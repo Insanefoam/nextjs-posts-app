@@ -1,9 +1,16 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import Head from "next/head";
 
-const MainLayout = ({ children, title }) => {
+interface MainLayoutProps {
+  children?: ReactNode;
+  title: string;
+}
+
+const MainLayout: React.FC<MainLayoutProps> = ({
+  children,
+  title = "Posts App",
+}) => {
   return (
     <>
       <Head>

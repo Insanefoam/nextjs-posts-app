@@ -1,7 +1,17 @@
 import React from "react";
-import MainLayout from "../../components/mainLayout";
+import MainLayout from "../../components/MainLayout";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 
-const About = ({ title, body }) => {
+export const getStaticProps: GetStaticProps = async (_) => {
+  const res = await fetch("http://localhost:4200/about");
+  const about = await res.json();
+  return { props: about };
+};
+
+const About = ({
+  title,
+  body,
+}): InferGetStaticPropsType<typeof getStaticProps> => {
   return (
     <MainLayout title="About Page">
       <h1>{title}</h1>
@@ -13,12 +23,6 @@ const About = ({ title, body }) => {
       </blockquote>
     </MainLayout>
   );
-};
-
-export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:4200/about");
-  const about = await res.json();
-  return { props: about };
 };
 
 export default About;

@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import MainLayout from "../../components/mainLayout";
+import MainLayout from "../../components/MainLayout";
 
 const Post = ({ post }) => {
   const router = useRouter();
@@ -9,7 +9,7 @@ const Post = ({ post }) => {
 
   return (
     <MainLayout title={post.title}>
-      <div className="d-flex align-items-center justify-content-center">
+      <div className="d-flex align-items-center justify-content-center mb-3">
         <button
           type="button"
           className="btn btn-primary"

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import MainLayout from "../components/mainLayout";
+import MainLayout from "../components/MainLayout";
 
 const Index = () => (
   <MainLayout title="Main Page">

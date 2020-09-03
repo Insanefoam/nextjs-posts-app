@@ -1,4 +1,4 @@
-import MainLayout from "../../components/mainLayout";
+import MainLayout from "../../components/MainLayout";
 import Link from "next/link";
 
 const Posts = ({ posts }) => {
