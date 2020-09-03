@@ -1,13 +1,9 @@
 import React from "react";
 import MainLayout from "../../components/mainLayout";
-import Head from "next/head";
 
 const About = ({ title, body }) => {
   return (
-    <MainLayout>
-      <Head>
-        <title>About Page | Next.js</title>
-      </Head>
+    <MainLayout title="About Page">
       <h1>{title}</h1>
       <blockquote className="blockquote text-center">
         <p className="mb-0">{body}</p>

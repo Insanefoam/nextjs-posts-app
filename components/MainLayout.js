@@ -3,9 +3,12 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
-const MainLayout = ({ children }) => {
+const MainLayout = ({ children, title }) => {
   return (
     <>
+      <Head>
+        <title>{title} | Next.js</title>
+      </Head>
       <header>
         <nav className="navbar navbar-expand-lg navbar-light bg-light mr-auto">
           <Link href="/">
@@ -32,7 +35,7 @@ const MainLayout = ({ children }) => {
           </div>
         </nav>
       </header>
-      <main className="pl-5 pr-5 text-center mt-2">{children}</main>
+      <main className="pl-5 pr-5 text-center pt-2">{children}</main>
     </>
   );
 };
